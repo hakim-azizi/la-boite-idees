@@ -1,0 +1,13 @@
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  margin-right: 0 !important;
+  margin-left: -0.4%;
+}
+
+.card > article {
+  width: 16.6%;
+  min-width: 170px;
+}

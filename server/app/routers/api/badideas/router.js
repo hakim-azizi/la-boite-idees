@@ -6,8 +6,14 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Import item-related actions
-const { browse, read, add } = require("../../../controllers/itemActions");
+// Import photo-related actions
+const {
+  browse,
+  read,
+  add,
+  destroy,
+  edit,
+} = require("../../../controllers/badIdeasActions");
 
 // Route to get a list of items
 router.get("/", browse);
@@ -17,6 +23,11 @@ router.get("/:id", read);
 
 // Route to add a new item
 router.post("/", add);
+
+// Route to add a new item
+router.delete("/delete/:id", destroy);
+
+router.put("/update/:id", edit);
 
 /* ************************************************************************* */
 

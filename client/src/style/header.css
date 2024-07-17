@@ -1,0 +1,41 @@
+nav {
+  display: flex;
+  flex-wrap: nowrap;
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  background: #0c9099;
+}
+
+nav > p {
+  min-width: 200px;
+  max-width: 400px;
+  width: 20%;
+  height: 100px;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  line-height: 100px;
+  background: #064e53;
+  color: #10e6f3;
+}
+
+nav > figure {
+  width: 100px;
+  height: 100px;
+  background: #10e6f3;
+}
+
+nav > figure > img {
+  position: relative;
+  top: 50%;
+  transform: translate(0%, -50%);
+
+  display: block;
+  margin: auto;
+  line-height: 100px;
+}
+
+nav > ul {
+  display: none;
+}
