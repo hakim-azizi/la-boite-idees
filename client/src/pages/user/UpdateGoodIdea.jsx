@@ -1,18 +1,26 @@
 import { useLoaderData } from "react-router-dom";
-import FormUpdateArtwork from "../../components/FormUpdateArtwork";
+import { useState } from "react";
 
-function UpdateArtwork() {
-  const dataPhotographer = useLoaderData();
+import FormUpdateIdea from "../../components/FormUpdateIdea";
+
+function UpdateGoodIdea() {
+  const [messageRequest, setMessageRequest] = useState("");
+  const dataGoodIdea = useLoaderData();
 
   return (
     <>
-      <h1>Modification d&apos;une oeuvre</h1>
+      <h1>Modification d&apos;une bonne idée</h1>
+      <p>{messageRequest}</p>
       <section className="alignment">
-        {dataPhotographer.map((value) => (
-          <FormUpdateArtwork key={value.id} value={value} />
+        {dataGoodIdea.map((value) => (
+          <FormUpdateIdea
+            key={value.id}
+            value={value}
+            setMessageRequest={setMessageRequest}
+          />
         ))}
       </section>
     </>
   );
 }
-export default UpdateArtwork;
+export default UpdateGoodIdea;

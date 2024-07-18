@@ -111,6 +111,10 @@ const router = createBrowserRouter([
           {
             path: "update-user",
             element: <UpdateUser />,
+            loader: () =>
+              fetch(`${import.meta.env.VITE_API_URL}/api/users/`).then(
+                (response) => response.json()
+              ),
           },
         ],
       },

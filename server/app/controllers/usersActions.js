@@ -70,7 +70,7 @@ const edit = async (req, res, next) => {
 
   try {
     // Insert the item into the database
-    const editId = await tables.artist.update(id, keys, values);
+    const editId = await tables.user.update(id, keys, values);
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ editId });
   } catch (err) {

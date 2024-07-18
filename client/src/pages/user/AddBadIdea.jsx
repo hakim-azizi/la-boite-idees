@@ -1,28 +1,45 @@
+import { useLoaderData } from "react-router-dom";
 import { useRef } from "react";
 
 function AddBadIdea() {
+  const ideasId = useLoaderData();
+
   const titleRef = useRef();
   const descriptionRef = useRef();
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+   event.preventDefault();
 
     try {
-      const fetchResponse = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/artists`,
+      const fetchResponseAddIdea = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/ideas`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            firstname: titleRef.current.value,
+            title: titleRef.current.value,
             description: descriptionRef.current.value,
+            good: "1",
           }),
         }
       );
 
-      console.warn(fetchResponse);
+      const fetchResponse = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/bad-ideas`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id_idea: `${ideasId.id+1}`,
+          }),
+        }
+      );
+
+      console.warn(fetchResponse, fetchResponseAddIdea);
       return null;
     } catch (err) {
       return err;
@@ -42,7 +59,7 @@ function AddBadIdea() {
             id="title"
             name="title"
             required
-            placeholder="Titre de la blague"
+            placeholder="Titre de l'idée'"
           />
         </div>
         <div>
@@ -54,11 +71,11 @@ function AddBadIdea() {
             id="description"
             name="description"
             required
-            placeholder="Veuillez entrée la biographie de l'artiste"
+            placeholder="Veuillez entrée votre"
           />
         </div>
         <button className="button-form" type="submit">
-          Ajout d&apos;une mauvaise idée
+          Ajout d&apos;une idée
         </button>
       </form>
     </>

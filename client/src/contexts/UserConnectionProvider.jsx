@@ -33,7 +33,7 @@ export function UserConnectionProvider({ children }) {
         localStorage.setItem("token", `${auth.token}`);
         localStorage.setItem("pseudonym", `${auth.user.pseudonym}`);
 
-        navigate("/");
+        navigate("/user");
       } else {
         const contentType = response.headers.get("content-type");
         const errorMessage = "Votre mail ou votre mot de passe est invalide";
