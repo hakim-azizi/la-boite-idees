@@ -12,7 +12,7 @@ router.use("/bad-ideas", badIdeasRouter);
 
 const goodIdeasRouter = require("./goodideas/router");
 
-router.use("/bad-ideas", goodIdeasRouter);
+router.use("/good-ideas", goodIdeasRouter);
 
 const ideasRouter = require("./ideas/router");
 

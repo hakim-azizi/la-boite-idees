@@ -9,7 +9,7 @@ const router = express.Router();
 // Import photo-related actions
 const {
   browse,
-   read,
+  read,
   readId,
   add,
   destroy,
@@ -20,7 +20,7 @@ const {
 router.get("/", browse);
 
 // Route to get a list of items
-router.get("/ideaid", readId);
+router.get("/idea-id", readId);
 
 // Route to get a specific item by ID
 router.get("/:id", read);
