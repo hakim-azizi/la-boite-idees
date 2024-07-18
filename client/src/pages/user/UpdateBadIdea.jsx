@@ -1,16 +1,16 @@
 import { useLoaderData } from "react-router-dom";
+import FormUpdateIdea from "../../components/FormUpdateIdea";
 
-import FormUpdateArtist from "../../components/FormUpdateArtist";
 
 function UpdateArtist() {
-  const dataPhotographer = useLoaderData();
+  const dataBadIdea = useLoaderData();
 
   return (
     <>
-      <h1>modification d'un artiste </h1>
+      <h1>modification d'une mauvaise idées</h1>
       <section className="alignment">
-        {dataPhotographer.map((value) => (
-          <FormUpdateArtist key={value.id} value={value} />
+        {dataBadIdea.map((value) => (
+          <FormUpdateIdea key={value.id} value={value} />
         ))}
       </section>
     </>
