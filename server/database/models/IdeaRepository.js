@@ -10,14 +10,10 @@ class IdeaRepository extends AbstractRepository {
   // The C of CRUD - Create operation
 
   async create(idea) {
-        // Execute the SQL INSERT query to add a new item to the "item" table
+    // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title, description) values (?, ?)`,
-      [
-        idea.title,
-        idea.description,
-        idea.good
-      ]
+      `insert into ${this.table} (title, description,good) values (?, ?,?)`,
+      [idea.title, idea.description, idea.good]
     );
 
     // Return the ID of the newly inserted item
@@ -26,15 +22,17 @@ class IdeaRepository extends AbstractRepository {
 
   // The Rs of CRUD - Read operations
 
-
   async readId() {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `SHOW TABLE STATUS FROM la_boite_a_idee like "idea"`
+      `SELECT id FROM ${this.table} ORDER BY id DESC`
+      // `SELECT LAST_INSERT_ID() AS ${this.table}`
+
+      // `SELECT LAST_INSERT_ID()`
     );
 
     // Return the first row of the result, which represents the item
-    return rows[0].Auto_increment+1;
+    return rows[0];
   }
 
   async read(id) {
@@ -50,16 +48,8 @@ class IdeaRepository extends AbstractRepository {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
-
-    // Return the array of items
-    return rows;
-  }
-
-  async readfourResult() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `select * from ${this.table} ORDER BY RAND() LIMIT 4`
+      `select * from ${this.table} ORDER BY RAND()`
     );
 
     // Return the array of items

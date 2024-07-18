@@ -1,23 +1,12 @@
 import "../style/home.css";
 
 function Home() {
+  // const pseudonym = localStorage.getItem("pseudonym");
   return (
     <>
-      {" "}
-      <header>
-        <nav>
-          <p>La boite à idées</p>
-          <figure>
-            <img src="menu-burger.png" alt="Ouverture du menu" />
-          </figure>
-          <ul>
-            <li>Bonnes idées</li>
-            <li>Mauvaises idées</li>
-          </ul>
-        </nav>
-      </header>
       <header>
         <h1>Le site qui n’a pas que des bonnes idée</h1>
+        {/* <p>Bonjour {pseudonym}.</p> */}
       </header>
       <main>
         <section>

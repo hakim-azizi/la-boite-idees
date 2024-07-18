@@ -39,7 +39,7 @@ class BadIdeaRepository extends AbstractRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `SELECT bad_idea.id,idea.title,idea.description,bad_idea.id_idea FROM bad_idea LEFT JOIN idea ON bad_idea.id_idea = idea.id ORDER BY bad_idea.id_idea ASC`
+      `SELECT bad_idea.id,idea.title,idea.description,bad_idea.id_idea FROM bad_idea LEFT JOIN idea ON bad_idea.id_idea = idea.id  ORDER BY RAND()`
     );
     // Return the array of items
     return rows;

@@ -1,20 +1,20 @@
 import { useLoaderData } from "react-router-dom";
 import IdeaCard from "../components/IdeaCard";
-import "../style/good-idea.css";
 
-function GoodIdea() {
+import "../style/bad-idea.css";
+
+function Idea() {
   const data = useLoaderData();
+
   return (
     <>
       <header>
-        <h1>Les bonnes idées</h1>
+        <h1>Le site qui n’a pas que des bonnes idée</h1>
       </header>
       <main>
         <section>
           <article>
-            <h2>
-            La bonne idée :
-            </h2>
+            <h2>Vous recherchez une idée ne cherchez plus vous l’avez trouver...</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
               earum laboriosam fugit dicta dolorem voluptatibus quaerat labore
@@ -31,7 +31,7 @@ function GoodIdea() {
           </article>
         </section>
         <section className="card">
-        {data.map((value) => (
+          {data.map((value) => (
             <IdeaCard key={value.id} value={value} />
           ))}
         </section>
@@ -40,4 +40,4 @@ function GoodIdea() {
   );
 }
 
-export default GoodIdea;
+export default Idea;
