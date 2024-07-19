@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         path: "idea",
         element: <Idea />,
         loader: () =>
-          fetch(`${import.meta.env.VITE_API_URL}/api/ideas/`).then((response) =>
+          fetch(`${import.meta.env.VITE_API_URL}/api/ideas/rand`).then((response) =>
             response.json()
           ),
       },
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         path: "bad-idea",
         element: <BadIdea />,
         loader: () =>
-          fetch(`${import.meta.env.VITE_API_URL}/api/bad-ideas/`).then(
+          fetch(`${import.meta.env.VITE_API_URL}/api/bad-ideas/rand`).then(
             (response) => response.json()
           ),
       },
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         path: "good-idea",
         element: <GoodIdea />,
         loader: () =>
-          fetch(`${import.meta.env.VITE_API_URL}/api/good-ideas/`).then(
+          fetch(`${import.meta.env.VITE_API_URL}/api/good-ideas/rand`).then(
             (response) => response.json()
           ),
       },

@@ -49,6 +49,7 @@ function AddGoodIdea() {
   return (
     <>
       <h1>Ajout d'une bonne idée</h1>
+      <article>
       <form onSubmit={handleSubmit}>
         <div>
           {/* Champ pour le prénom */}
@@ -77,7 +78,7 @@ function AddGoodIdea() {
         <button className="button-form" type="submit">
           Ajout d&apos;une idée
         </button>
-      </form>
+      </form></article>
     </>
   );
 }
