@@ -72,7 +72,7 @@ function FormUpdateUser({ value, setMessageRequest }) {
   }
   // "✅" : "❌"
   return (
-    <>
+    <article>
       <form onSubmit={handleSubmit}>
         <div>
           {/* Champ pour le nom */}
@@ -133,8 +133,8 @@ function FormUpdateUser({ value, setMessageRequest }) {
         item="user"
         id={value.id}
         setMessageRequest={setMessageRequest}
-      />
-    </>
+      /></article>
+    
   );
 }
 

@@ -80,66 +80,68 @@ function Register() {
       <header>
         <h1>Inscription :</h1>
       </header>
-      <form onSubmit={handleSubmit}>
-        <div>
-          {/* Champ pour le nom */}
-          <label htmlFor="lastname">{}</label>
-          <input
-            ref={pseudonymRef}
-            type="text"
-            id="pseudonym"
-            name="pseudonym"
-            required
-            placeholder="pseudonyme"
-          />
-        </div>
+      <article>
+        <form onSubmit={handleSubmit}>
+          <div>
+            {/* Champ pour le nom */}
+            <label htmlFor="lastname">{}</label>
+            <input
+              ref={pseudonymRef}
+              type="text"
+              id="pseudonym"
+              name="pseudonym"
+              required
+              placeholder="pseudonyme"
+            />
+          </div>
 
-        <div>
-          {/* Champ pour l'email */}
-          <label htmlFor="email">{}</label>
-          <input
-            ref={emailRef}
-            type="email"
-            id="email"
-            required
-            placeholder="exemple@email.com"
-          />
-        </div>
-        <div>
-          {/* Champ pour le mot de passe */}
-          <label htmlFor="password">{}</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-            placeholder="Mot de passe"
-            className={redColorPassword}
-          />
-        </div>
-        {/* Indicateur de force du mot de passe */}
-        <p>{}</p>
-        <div>
-          {/* Champ pour la confirmation du mot de passe */}
-          <label htmlFor="confirm-password">{}</label>
-          <input
-            type="password"
-            id="confirm-password"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
-            required
-            placeholder="Confirmation du mot de passe"
-            className={ConfirmPasswordChange}
-          />
-        </div>
-        {/* Indicateur de correspondance avec le mot de passe */}
-        {/* Bouton de soumission du formulaire */}
-        <button className="button-form" type="submit">
-          S&apos;inscrire
-        </button>
-        {responsevalue && <p className="errormessage">{responsevalue}</p>}
-      </form>
+          <div>
+            {/* Champ pour l'email */}
+            <label htmlFor="email">{}</label>
+            <input
+              ref={emailRef}
+              type="email"
+              id="email"
+              required
+              placeholder="exemple@email.com"
+            />
+          </div>
+          <div>
+            {/* Champ pour le mot de passe */}
+            <label htmlFor="password">{}</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={handlePasswordChange}
+              required
+              placeholder="Mot de passe"
+              className={redColorPassword}
+            />
+          </div>
+          {/* Indicateur de force du mot de passe */}
+          <p>{}</p>
+          <div>
+            {/* Champ pour la confirmation du mot de passe */}
+            <label htmlFor="confirm-password">{}</label>
+            <input
+              type="password"
+              id="confirm-password"
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
+              required
+              placeholder="Confirmation du mot de passe"
+              className={ConfirmPasswordChange}
+            />
+          </div>
+          {/* Indicateur de correspondance avec le mot de passe */}
+          {/* Bouton de soumission du formulaire */}
+          <button className="button-form" type="submit">
+            S&apos;inscrire
+          </button>
+          {responsevalue && <p className="errormessage">{responsevalue}</p>}
+        </form>
+      </article>
     </>
   );
 }

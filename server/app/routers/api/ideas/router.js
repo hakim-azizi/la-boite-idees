@@ -9,6 +9,7 @@ const router = express.Router();
 // Import photo-related actions
 const {
   browse,
+  randBrowse,
   read,
   readId,
   add,
@@ -18,6 +19,9 @@ const {
 
 // Route to get a list of items
 router.get("/", browse);
+
+// Route to get a list random list of items
+router.get("/rand", randBrowse);
 
 // Route to get a list of items
 router.get("/idea-id", readId);

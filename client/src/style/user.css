@@ -1,0 +1,12 @@
+.alignment {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.alignment > article {
+  width: 280px;
+  margin: 0;
+}

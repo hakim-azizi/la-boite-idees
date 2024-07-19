@@ -83,7 +83,7 @@ function AddUser() {
     <>
       <header>
         <h1>Inscription :</h1>
-      </header>
+      </header><article>
       <form onSubmit={handleSubmit}>
         <div>
           {/* Champ pour le prénom */}
@@ -155,7 +155,7 @@ function AddUser() {
           S&apos;inscrire le membre
         </button>
         {responsevalue && <p className="errormessage">{responsevalue}</p>}
-      </form>
+      </form></article>
     </>
   );
 }

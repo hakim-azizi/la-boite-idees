@@ -11,11 +11,9 @@ class BadIdeaRepository extends AbstractRepository {
 
   async create(badIdea) {
     // Execute the SQL INSERT query to add a new item to the "item" table
-        const [result] = await this.database.query(
+    const [result] = await this.database.query(
       `INSERT INTO ${this.table} (id_idea) values (?)`,
-      [
-        badIdea.id_idea
-      ]
+      [badIdea.id_idea]
     );
 
     // Return the ID of the newly inserted item
@@ -39,12 +37,20 @@ class BadIdeaRepository extends AbstractRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `SELECT bad_idea.id,idea.title,idea.description,bad_idea.id_idea FROM bad_idea LEFT JOIN idea ON bad_idea.id_idea = idea.id  ORDER BY RAND()`
+      `SELECT bad_idea.id,idea.title,idea.description,bad_idea.id_idea FROM bad_idea LEFT JOIN idea ON bad_idea.id_idea = idea.id ORDER BY id ASC`
     );
     // Return the array of items
     return rows;
   }
 
+  async readRandAll() {
+    // Execute the SQL SELECT query to retrieve all items from the "item" table
+    const [rows] = await this.database.query(
+      `SELECT bad_idea.id,idea.title,idea.description,bad_idea.id_idea FROM bad_idea LEFT JOIN idea ON bad_idea.id_idea = idea.id ORDER BY RAND()`
+    );
+    // Return the array of items
+    return rows;
+  }
 
   // The U of CRUD - Update operation
 

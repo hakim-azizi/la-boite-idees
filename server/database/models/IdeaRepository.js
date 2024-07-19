@@ -49,6 +49,16 @@ class IdeaRepository extends AbstractRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
+      `select * from ${this.table} ORDER BY id ASC`
+    );
+
+    // Return the array of items
+    return rows;
+  }
+
+  async readRandAll() {
+    // Execute the SQL SELECT query to retrieve all items from the "item" table
+    const [rows] = await this.database.query(
       `select * from ${this.table} ORDER BY RAND()`
     );
 

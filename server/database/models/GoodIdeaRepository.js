@@ -39,12 +39,20 @@ class goodIdeaRepository extends AbstractRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `SELECT good_idea.id,idea.title,idea.description,good_idea.id_idea FROM good_idea LEFT JOIN idea ON good_idea.id_idea = idea.id  ORDER BY RAND()`
+      `SELECT good_idea.id,idea.title,idea.description,good_idea.id_idea FROM good_idea LEFT JOIN idea ON good_idea.id_idea = idea.id  ORDER BY id ASC`
     );
     // Return the array of items
     return rows;
   }
 
+async readRandAll(){
+  // Execute the SQL SELECT query to retrieve all items from the "item" table
+  const [rows] = await this.database.query(
+    `SELECT good_idea.id,idea.title,idea.description,good_idea.id_idea FROM good_idea LEFT JOIN idea ON good_idea.id_idea = idea.id  ORDER BY RAND()`
+  );
+  // Return the array of items
+  return rows;
+}
 
   // The U of CRUD - Update operation
 
