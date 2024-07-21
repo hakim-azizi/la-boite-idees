@@ -9,26 +9,12 @@ function FormUpdateUser({ value, setMessageRequest }) {
   // Référence pour le champ firstname
   const pseudonymRef = useRef();
 
-  // États pour le mot de passe et la confirmation du mot de passe
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
   //  États pour l'affichage de l&apos;erreur
   const [responseValue, setResponseValue] = useState("");
 
   // Messsage d'erreur
   const errorMessage =
     "Une erreur s'est produite. Veuillez réessayer plus tard.";
-
-  // Gestionnaire de changement du mot de passe
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  // Gestionnaire de changement de la confirmation du mot de passe
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
-  };
 
   // Gestionnaire de soumission du formulaire
   const handleSubmit = async (event) => {
@@ -44,7 +30,6 @@ function FormUpdateUser({ value, setMessageRequest }) {
           body: JSON.stringify({
             pseudonym: pseudonymRef.current.value,
             email: emailRef.current.value,
-            password,
           }),
         }
       );
@@ -64,13 +49,7 @@ function FormUpdateUser({ value, setMessageRequest }) {
       setResponseValue(errorMessage);
     }
   };
-  const redColorPassword = password.length >= 8 ? "" : "errormessage";
-  let confirmPasswordChange = "errormessage";
 
-  if (password === confirmPassword && confirmPassword.length > 0) {
-    confirmPasswordChange = "";
-  }
-  // "✅" : "❌"
   return (
     <article>
       <form onSubmit={handleSubmit}>
@@ -96,33 +75,6 @@ function FormUpdateUser({ value, setMessageRequest }) {
             placeholder={value.email}
           />
         </div>
-        <div>
-          {/* Champ pour le mot de passe */}
-          <label htmlFor="password">{}</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-            placeholder="Mot de passe"
-            className={redColorPassword}
-          />
-        </div>
-        {/* Indicateur de force du mot de passe */}
-        <p>{}</p>
-        <div>
-          {/* Champ pour la confirmation du mot de passe */}
-          <label htmlFor="confirm-password">{}</label>
-          <input
-            type="password"
-            id="confirm-password"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
-            placeholder="Confirmation du mot de passe"
-            className={confirmPasswordChange}
-          />
-        </div>
-        {/* Indicateur de correspondance avec le mot de passe */}
         {/* Bouton de soumission du formulaire */}
         <button className="button-form" type="submit">
           S&apos;inscrire le membre
@@ -133,8 +85,8 @@ function FormUpdateUser({ value, setMessageRequest }) {
         item="user"
         id={value.id}
         setMessageRequest={setMessageRequest}
-      /></article>
-    
+      />
+    </article>
   );
 }
 
